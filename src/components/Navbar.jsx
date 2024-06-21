@@ -1,4 +1,5 @@
 "use client";
+import { useAuthContext } from "@/context/AuthContext";
 import {
   Disclosure,
   Menu,
@@ -16,7 +17,9 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
-  const currentUser = { displayName: "Ömer" };
+  //const currentUser = { displayName: "Ömer" };
+
+  const {currentUser} = useAuthContext()
   const [showBackground, setShowBackground] = useState(false);
 
   useEffect(() => {
@@ -104,7 +107,7 @@ export default function Navbar() {
                       </Link>
                     )}
                   </MenuItem>
-                  
+
                   <MenuItem>
                     {({ focus }) => (
                       <Link
