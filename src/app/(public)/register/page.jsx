@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import GoogleIcon from "/public/icons/GoogleIcon";
-//import { useAuthContext } from "@/context/AuthContext";
+import { useAuthContext } from "@/context/AuthContext";
 
 const Register = () => {
   const [info, setInfo] = useState({
@@ -10,17 +10,17 @@ const Register = () => {
     email: "",
     password: "",
   });
- // const { createUser, signUpProvider } = useAuthContext();
+ const { createUser, signUpProvider } = useAuthContext();
 
   const handleChange = (e) =>
     setInfo({ ...info, [e.target.name]: e.target.value });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-   // const { firstName, lastName, email, password } = info;
-    //const displayName = `${firstName} ${lastName}`;
-    //createUser(email, password, displayName);
-    console.log({ info });
+    const { firstName, lastName, email, password } = info;
+    const displayName = `${firstName} ${lastName}`;
+    createUser(email, password, displayName);
+    //console.log({ info });
   };
   return (
     <div className="relative h-screen w-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
