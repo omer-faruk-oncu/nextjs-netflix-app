@@ -4,7 +4,7 @@ import HeroSection from "./components/HeroSection";
 
 const Movies = async () => {
   const movies = await getMovies("now_playing");
-  console.log(movies);
+  //console.log(movies);
   return (
     <div>
       <HeroSection
